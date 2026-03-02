@@ -2,7 +2,7 @@
   "name": "mathvibegallery",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://mathvibegallery.space/",
+  "homepage": "https://gallery.mathvibe.space/",
   "type": "module",
   "scripts": {
     "dev": "vite",
