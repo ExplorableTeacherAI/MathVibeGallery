@@ -1,16 +1,22 @@
-/* Hide native slider thumbs */
+/* Hide native slider track and make thumbs clickable */
+input[type="range"] {
+  pointer-events: none;
+}
+
 input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
   -webkit-appearance: none;
   appearance: none;
-  width: 0;
-  height: 0;
+  width: 24px;
+  height: 24px;
   background: transparent;
   cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 0;
-  height: 0;
+  pointer-events: auto;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -18,8 +24,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 input[type="range"]::-ms-thumb {
-  width: 0;
-  height: 0;
+  pointer-events: auto;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
