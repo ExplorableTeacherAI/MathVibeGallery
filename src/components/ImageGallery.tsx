@@ -652,8 +652,8 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ filters, onImageCoun
                 variant="secondary"
                 className="text-sm px-1 py-0 font-medium border-none transition-colors"
                 style={{
-                  backgroundColor: `${imageTag.tag.category?.color || '#6366f1'}2b`,
-                  color: imageTag.tag.category?.color || '#6366f1',
+                  backgroundColor: `${imageTag.tag.category?.color || '#6366f1'}80`,
+                  color: '#333333',
                 }}
                 title={imageTag.tag.category?.name ? `Category: ${imageTag.tag.category.name}` : undefined}
               >

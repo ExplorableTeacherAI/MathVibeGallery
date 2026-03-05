@@ -134,8 +134,8 @@ export const MediaViewerModal: React.FC<MediaViewerModalProps> = ({
                       variant="secondary"
                       className="text-sm px-2 py-1 font-medium border-none transition-colors"
                       style={{
-                        backgroundColor: `${imageTag.tag.category?.color || '#6366f1'}2b`,
-                        color: imageTag.tag.category?.color || '#6366f1',
+                        backgroundColor: `${imageTag.tag.category?.color || '#6366f1'}80`,
+                        color: '#333333',
                       }}
                       title={imageTag.tag.category?.name ? `Category: ${imageTag.tag.category.name}` : undefined}
                     >

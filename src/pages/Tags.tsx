@@ -484,8 +484,8 @@ export default function Tags() {
                         variant="secondary"
                         className="text-sm px-2 py-1 font-medium border-none transition-colors"
                         style={{
-                          backgroundColor: `${tag.category?.color || '#6366f1'}2b`,
-                          color: tag.category?.color || '#6366f1',
+                          backgroundColor: `${tag.category?.color || '#6366f1'}80`,
+                          color: '#333333',
                         }}
                       >
                         {tag.tag_name}
@@ -505,8 +505,8 @@ export default function Tags() {
                         variant="secondary"
                         className="text-sm px-2 py-1 font-medium border-none transition-colors"
                         style={{
-                          backgroundColor: `${tag.category?.color || '#6366f1'}2b`,
-                          color: tag.category?.color || '#6366f1',
+                          backgroundColor: `${tag.category?.color || '#6366f1'}80`,
+                          color: '#333333',
                         }}
                       >
                         {tag.category?.name}

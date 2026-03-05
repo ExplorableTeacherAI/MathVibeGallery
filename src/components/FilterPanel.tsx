@@ -518,8 +518,8 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange, image
                       <span
                         className="inline-flex items-center px-2 py-0.5 rounded-full text-sm"
                         style={{
-                          backgroundColor: `${category.color || '#6366f1'}20`,
-                          color: category.color || '#6366f1'
+                          backgroundColor: `${category.color || '#6366f1'}80`,
+                          color: '#333333',
                         }}
                       >
                         {category.name}
@@ -593,8 +593,8 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({ onFiltersChange, image
                         <span
                           className="inline-flex items-center px-2 py-0.5 rounded-full text-sm"
                           style={{
-                            backgroundColor: `${tag.category.color || '#6366f1'}20`,
-                            color: tag.category.color || '#6366f1'
+                            backgroundColor: `${tag.category.color || '#6366f1'}80`,
+                            color: '#333333',
                           }}
                         >
                           {tag.tag_name}

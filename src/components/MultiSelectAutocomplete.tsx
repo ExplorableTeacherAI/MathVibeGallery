@@ -172,8 +172,8 @@ export const MultiSelectAutocomplete: React.FC<MultiSelectAutocompleteProps> = (
                   variant="secondary"
                   className="text-sm font-semibold border-none"
                   style={{
-                    backgroundColor: `${option.categoryColor || '#6366f1'}2b`,
-                    color: option.categoryColor || '#6366f1',
+                    backgroundColor: `${option.categoryColor || '#6366f1'}80`,
+                    color: '#333333',
                   }}
               >
                 {option.label}
@@ -242,14 +242,14 @@ export const MultiSelectAutocomplete: React.FC<MultiSelectAutocompleteProps> = (
                       isHighlighted && "ring-2 ring-accent"
                     )}
                     style={{
-                      backgroundColor: `${option.categoryColor || '#6366f1'}2b`
+                      backgroundColor: `${option.categoryColor || '#6366f1'}80`
                     }}
                     onClick={() => handleOptionSelect(option.id)}
                   >
                     <div className="flex flex-col flex-1">
                       <span 
                         className="font-medium"
-                        style={{ color: option.categoryColor || '#6366f1' }}
+                        style={{ color: '#333333' }}
                       >
                         {option.label}
                       </span>
@@ -260,7 +260,7 @@ export const MultiSelectAutocomplete: React.FC<MultiSelectAutocompleteProps> = (
                       )}
                     </div>
                     {isSelected && (
-                      <Check className="h-4 w-4 ml-2" style={{ color: option.categoryColor || '#6366f1' }} />
+                      <Check className="h-4 w-4 ml-2" style={{ color: '#333333' }} />
                     )}
                   </div>
                 );
