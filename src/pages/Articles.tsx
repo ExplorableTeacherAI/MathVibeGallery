@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Plus, Edit, Trash2, ExternalLink, ChevronDown, ChevronUp, ArrowUpDown } from "lucide-react";
+import { Plus, Edit, Trash2, ExternalLink, ChevronDown, ChevronUp, ArrowUpDown, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { AddArticlePanel } from "@/components/AddArticlePanel";
 import { SearchInput } from "@/components/SearchInput";
@@ -36,6 +36,39 @@ export const Articles = () => {
   const [sortColumn, setSortColumn] = useState<SortColumn>(null);
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const { toast } = useToast();
+
+  const handleExportCSV = () => {
+    const headers = ["Title", "Subject Area", "Subject", "Year", "Source", "URL", "Created At"];
+    const csvRows = [
+      headers.join(","),
+      ...sortedArticles.map(article => {
+        const escape = (val: string) => `"${val.replace(/"/g, '""')}"`;
+        return [
+          escape(article.title),
+          escape(article.subject_area?.name || "Unknown"),
+          escape(article.subject),
+          article.year ?? "",
+          escape(article.source || ""),
+          escape(article.link),
+          escape(new Date(article.created_at).toLocaleDateString()),
+        ].join(",");
+      }),
+    ];
+
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `articles_export_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+
+    toast({
+      title: "Exported",
+      description: `${sortedArticles.length} articles exported to CSV`,
+    });
+  };
 
   // Filter articles based on search query
   const filteredArticles = useMemo(() => {
@@ -287,10 +320,16 @@ export const Articles = () => {
             </Button>
           </div>
         </div>
-        <Button onClick={() => setShowAddPanel(true)} variant="outline" className="flex items-center gap-2">
-          <Plus className="h-4 w-4" />
-          Add Article
-        </Button>
+        <div className="flex items-center gap-2">
+          <Button onClick={handleExportCSV} variant="outline" className="flex items-center gap-2">
+            <Download className="h-4 w-4" />
+            Export CSV
+          </Button>
+          <Button onClick={() => setShowAddPanel(true)} variant="outline" className="flex items-center gap-2">
+            <Plus className="h-4 w-4" />
+            Add Article
+          </Button>
+        </div>
       </div>
 
       {/* Charts Section - Collapsible */}
